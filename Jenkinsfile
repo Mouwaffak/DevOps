@@ -6,8 +6,8 @@ pipeline {
         NEXUS_CREDENTIALS_ID = 'deploymentRepo'     // Nexus credentials ID in Jenkins
         DOCKER_CREDENTIALS = credentials('docker-hub-credentials')
         RELEASE_VERSION = "1.0"
-        registry = "mouwaffak815/gestion-foyer"
-        registryCredential = 'docker-hub-credentials'
+        registry = "" // Your Git repository name
+        registryCredential = '' // DockerHub Credentials
         IMAGE_TAG = "${RELEASE_VERSION}-${env.BUILD_NUMBER}"
     }
 
@@ -16,9 +16,9 @@ pipeline {
             steps {
                 echo 'Pulling code from Git...'
                 git(
-                    branch: 'MouwaffakHmoudi-5SAE1-G3',
+                    branch: '', // Branch name
                     credentialsId: 'github_pat',
-                    url: 'https://github.com/karim9155/5SAE1-G3-Foyer.git'
+                    url: '' // Repository Url
                 )
             }
         }
